@@ -15,8 +15,8 @@ Let's Start with the **DSL**
 				answer "A survey" do
 
 					question "Why do you say that?", :type => :select do
-						option "Because I guessed"
-						option "Because I am smart"
+						option "guessed", :label => "Because I guessed"  # Label and field value are, by default the same.  Passing in :label overrides the label
+						option "smart"
 						option "I didn't mean to" do
 
 							question "Tell us 5 reasons why we should believe you", :type => :textfield do
