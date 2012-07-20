@@ -1,6 +1,8 @@
 I needed a survey builder for Rails.  I searched everywhere.  What I found was either out of
 date, or had 3m dependencies that I just didn't want to use in my project.  So I am building
-surveyguru.
+SurveyGuru.
+
+**SurveyGuru is still a WIP**
 
 Let's Start with the **DSL** for creating a survey
 
@@ -72,7 +74,7 @@ Let's Start with the **DSL** for creating a survey
 				answer :none, :label => "I don't like any of these things"
 			end
 			
-			complete do
+			complete do # Optional.  Will 
 				redirect :to => :results, :message => "Thanks for taking the survey"
 			end
 		end
@@ -87,6 +89,14 @@ Let's Start with the **DSL** for creating a survey
 1. Surveys
 2. Questions
 3. Answers
+4. Results
+
+#### Database Tables
+
+1. surveys (name, version, rules [store])
+3. questions (survey_id, name, type [enum], hint, rules [store])
+4. answers (question_id, type [enum], rules [store])
+5. results (answer_id, user_id, value [store])
 
 Surveys have many questions, while questions have many answers.  You can also get a listing of all of
 the answers for a survey via the `has_many :through` connection.
@@ -103,4 +113,8 @@ Surveys can be retrieved from the database by using the following
 ## Requirements
 
 SurveyGuru depends on `Rails >= 3.2`, `friendly_id >= 4.0.0`, `simple_form` (for default form rendering),
-and a `current_user` method to be made available in the controller and views (default in devise).
+and a `current_user` method (pointing to class of `User`) to be made available in the controller and views (default in devise).
+
+SurveyGuru will aim to support both postgres and mysql, however most of the testing is done with postgres
+as the primary driver.  If you find a bug, or can offer a patch to support another driver, please submit
+a pull request.
