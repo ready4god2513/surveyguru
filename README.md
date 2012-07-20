@@ -11,7 +11,7 @@ Let's Start with the **DSL** for creating a survey
 	survey "Kitchen Sink", :version => 1 do
 	
 		page do
-			question "What is this?", :type => :radio, :required => true do
+			question "What is this?", :type => :radio, :required => true, :id => :what-is-this do
 				hint "Please fill out the below form so we can spam you."
 				
 				answer "A survey"
@@ -62,6 +62,14 @@ Let's Start with the **DSL** for creating a survey
 				answer "Green"
 				answer "Red"
 				answer "Other", :type => :textbox, :placeholder => "other"
+			end
+			
+			when :what-is-this => {:is => "A Cat"} do
+				question "Why did you answer \"A Cat\"?" do
+					answer "I was messing around"
+					answer "I can't read.  What is this?"
+					answer "Because it is"
+				end
 			end
 		end
 		
