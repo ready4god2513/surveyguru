@@ -2,11 +2,11 @@ I needed a survey builder for Rails.  I searched everywhere.  What I found was e
 date, or had 3m dependencies that I just didn't want to use in my project.  So I am building
 surveyguru.
 
-Let's Start with the **DSL**
+Let's Start with the **DSL** for creating a survey
 
 ## DSL
 
-	survey "Kitchen Sink" do
+	survey "Kitchen Sink", :version => 1 do
 	
 		page do
 			question "What is this?", :type => :radio, :required => true do
@@ -80,6 +80,27 @@ Let's Start with the **DSL**
 	end
 	
 	
-## Additional Features
+## Storing and retrieving surveys and answers
 
-In order 
+#### SurveyGuru will generate a few models in your app-
+
+1. Surveys
+2. Questions
+3. Answers
+
+Surveys have many questions, while questions have many answers.  You can also get a listing of all of
+the answers for a survey via the has_many :through connection.
+
+Surveys are versioned (defaults to timestamp) in order to allow for updates to the surveys.
+
+Surveys can be retrieved from the database by using the following
+
+	@survey = Survey.find({:name => name, :version => version})
+	# friendly_id is used under the hood to parameterize the survey
+	# If you do not pass in a version, the most recent version of the survey will be returned
+	
+
+## Requirements
+
+SurveyGuru depends on Rails >= 3.2, friendly_id >= 4.0.0, simple_form (for default form rendering),
+and a current_user method to be made available in the controller and views (default in devise).
