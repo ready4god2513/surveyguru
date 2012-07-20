@@ -1,5 +1,5 @@
 require "surveyguru/version"
-
-module Surveyguru
-  # Your code goes here...
-end
+require "surveyguru/surverys"
+require "surveyguru/questions"
+require "surveyguru/answers"
+require "surveyguru/hints"
