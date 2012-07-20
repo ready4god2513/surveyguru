@@ -102,5 +102,5 @@ Surveys can be retrieved from the database by using the following
 
 ## Requirements
 
-SurveyGuru depends on Rails >= 3.2, friendly_id >= 4.0.0, simple_form (for default form rendering),
-and a current_user method to be made available in the controller and views (default in devise).
+SurveyGuru depends on `Rails >= 3.2`, `friendly_id >= 4.0.0`, `simple_form` (for default form rendering),
+and a `current_user` method to be made available in the controller and views (default in devise).
