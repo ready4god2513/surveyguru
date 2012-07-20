@@ -89,7 +89,7 @@ Let's Start with the **DSL** for creating a survey
 3. Answers
 
 Surveys have many questions, while questions have many answers.  You can also get a listing of all of
-the answers for a survey via the has_many :through connection.
+the answers for a survey via the `has_many :through` connection.
 
 Surveys are versioned (defaults to timestamp) in order to allow for updates to the surveys.
 
