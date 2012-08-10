@@ -19,7 +19,7 @@ Let's Start with the **DSL** for creating a survey
 				answer "A dog"
 			end
 			
-			when :previous => {:is => "A survey"} do
+			whilst :previous => {:is => "A survey"} do
 				question "Why do you say that?", :type => :select do
 					option "guessed", :label => "Because I guessed"  # Label and field value are, by default the same.  Passing in :label overrides the label
 					option "smart"
@@ -27,7 +27,7 @@ Let's Start with the **DSL** for creating a survey
 					option "Other"
 				end
 				
-				when :previous => {:is => "I didn't mean to"} do
+				whilst :previous => {:is => "I didn't mean to"} do
 					question "Tell us 5 reasons why we should believe you", :type => :textfield do
 						input "Reason One"
 						input "Reason Two"
@@ -38,7 +38,7 @@ Let's Start with the **DSL** for creating a survey
 				end
 			end
 			
-			when :previous => {:not => "A survey"} do
+			whilst :previous => {:not => "A survey"} do
 				complete do
 					redirect :to => :home, :message => "Thanks, but your input is going to be worthless"
 				end
@@ -64,7 +64,7 @@ Let's Start with the **DSL** for creating a survey
 				answer "Other", :type => :textbox, :placeholder => "other"
 			end
 			
-			when :what-is-this => {:is => "A Cat"} do
+			whilst :what-is-this => {:is => "A Cat"} do
 				question "Why did you answer \"A Cat\"?" do
 					answer "I was messing around"
 					answer "I can't read.  What is this?"
@@ -76,9 +76,9 @@ Let's Start with the **DSL** for creating a survey
 		page do
 			question "Sort these things by your favorite", :type => :sortable do
 				hint "You are almost done, hang in there!"
-				answer :bites, :label => "When the dog bites"
-				answer :stings, :label => "When the bee stings"
-				answer :sad, :label => "When I'm feeling sad"
+				answer :bites, :label => "whilst the dog bites"
+				answer :stings, :label => "whilst the bee stings"
+				answer :sad, :label => "whilst I'm feeling sad"
 				answer :none, :label => "I don't like any of these things"
 			end
 			

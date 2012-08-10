@@ -1,6 +1,8 @@
 module SurveyGuru
   
-  module Questions
+  class Question
+    
+    
     
   end
   

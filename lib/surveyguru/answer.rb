@@ -1,6 +1,6 @@
 module SurveyGuru
   
-  module Surveys
+  class Answer
     
   end
   
